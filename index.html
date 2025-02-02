@@ -14,6 +14,11 @@
    <!-- link to the CSS style sheet--> 
    <link rel="stylesheet" href=./style.css>
 
+   <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+   <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+ 
 <!--added javascript link-->
     <script src="scripts.js"></script>
 </head>
@@ -31,7 +36,7 @@
      <nav class="navbar navbar-light bg-light">
         <div class="container-fluid">
             <a span class="navbar-brand mb-0 h1" href= "./index.html">Manage Tasks</a></span>
-            <a span class="navbar-brand mb-0 h1" href= "./active.html">View Active tasks</a></span>
+            <a span class="navbar-brand mb-0 h1" href= "./active.html">View Active Tasks</a></span>
             <a span class="navbar-brand mb-0 h1" href= "./history.html">Task History</a></span>
                     
         </div>
@@ -42,26 +47,61 @@
     <h2> Add new task</h2>
     <p>To add a task to the 'to do' list, please fill out the field below and click 'add a task'</p>
 
-    <p> Choose a date and time: </p>
+    <h3> Set Deadline </h3>
 
-    <p>
-        <input type="datetime-local" />
-        <button id="color">Select deadline</button>
-      </p>
+     <script>
 
+  $(function() {
+    $( "#datepicker" ).datepicker();
+    
+    //selecting the button and adding a click event
+    $("#alert").click(function() {
+      //alerting the value inside the textbox
+      var date = $("#datepicker").datepicker("getDate");
+      alert($.datepicker.formatDate("dd-mm-yy", date));
+    });
+  });
 
+  $(document).ready(function(){
+    $('input.timepicker').timepicker({});
+});
+  </script>
+
+  <p>Date: <input type="text" id="datepicker">
+  <p> <button id="alert">Select Date</button> </p>
+
+    <br>
+<p> Set Time:
     <script>
     $.datepicker.setDefaults({
         showOn: "both",
         buttonImageOnly: true,
         buttonImage: "calendar.gif",
-        buttonText: "Calendar"
+        buttonText: "Calendar",
+        //outputs should be date
+        setDate(),
+        setMonth(),
+        SetFullYear(),
+      
       }); </script>
     <!--Input field here-->
+    <input class="timepicker">
 
     <button>
-        Add a task
-         </button>
+        Select Time 
+         </button> <br><br> </p>
+
+         <h3>Task Details </h3>
+         <label for="email">Title: </label>
+            <input type="text" id="title" name="Message" placeholder="Task Summary here..."> <br>
+    
+                     
+          <label for="Message">Task Details:</label> </ul> <br>
+          <textarea id="msg" name="subject" placeholder="Write details of task here...." cols="40" style="height:fit-content" style="width:fit-content(length-percentage)" ></textarea> <br> <br>
+      
+          <input type="submit" value="Add Task" > <br>
+
+         
 <br>
 </div>
 
@@ -69,11 +109,19 @@
 <h2>Edit task</h2>
 <p>To edit a previous task, DO SOMETHING and click 'Edit Task'</p>
 
-  <!--Input field here-->
+<h3>Select task to edit</h3>
+<button>Select Task </button>
+<h3>Task Details </h3>
+<label for="email">Title: </label>
+   <input type="text" id="title" name="Message" placeholder="Task Summary here..."> <br>
 
-  <button>
-    Edit task
-     </button>
+            
+ <label for="Message">Task Details:</label> </ul> <br>
+ <textarea id="msg" name="subject" placeholder="Write details of task here...." cols="40" style="height:fit-content" style="width:fit-content(length-percentage)" ></textarea> <br> <br>
+
+ <input type="submit" value="Edit Task" > <br>
+
+
 <br>
 </div>
 
@@ -83,11 +131,16 @@
   <!--Input field here-->
 
     <button>
-     Edit task
+     Select task
      </button>
+
+     <button>
+        Confirm Task Delection
+        </button>
 <br>
 </div>
 
+<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
     
 </body>
 
