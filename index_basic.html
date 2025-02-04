@@ -6,51 +6,66 @@
     <title>Document</title>
 
     <!-- link to the CSS style sheet--> 
-   <link rel="stylesheet" href=./style.css>
-
-   <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-   <script src="http://code.jquery.com/jquery-1.10.2.js"></script>
-   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
- 
+   <link rel="stylesheet" href=./assets/style.css>
 <!--added javascript link-->
     <script src="script_basic.js"></script>
 </head>
 <body>
-   <p>playing with task outputs</p> 
+   <h1>To Do List</h1> 
 
    <!--This creates a paragraph text including contents of demo-->
-   <p id="demo"></p>
-   <p id="addtaskdemo"></p>
+   <div id="widget1">
+    <h2>Create Task</h2>
+    <p>Fill in details below: <br>
+        Date:
+        Time: <br>
+        Task: <br>
+        Task Details: <br>
 
-   <!--This prints it on the page-->
-<script>
-document.getElementById("demo").innerHTML = "Hello world";
-</script>
+    <!--This is where the outputs go-->
+        <p id="demo"></p>
+
+<!--So for demo, I now need a variable which finds demo on the page-->
+
+        <p id="addtaskdemo"></p>
+    </p>
+</div>
+
+ 
+
+
 
 <!--First we want to create a variable on the script and print it-->
-<div>Title:<p id="title"></p></div>
+<div id="fred">Title:<p id="title"></p></div>
 <p>Deadline:</p><p id="date"> </p> Time: <p id="time"></p>
 <p>Task Details:</p> <p id="details"></p>
 
-<!--this pulls out the info linked to those outputs-->
-<script>
-   
-   </script>
 
 <!--this is a working button click event listener!-->
     <button id="clicktest">test click listener </button>
-<script>
-clicktest.addEventListener("click", buttonClick);
 
-function buttonClick() {
-  document.getElementById("demo").innerHTML = "Pigs might fly";
-  document.getElementById("title").innerHTML = taskList[0];
-   document.getElementById("date").innerHTML = taskList[1];
-   document.getElementById("time").innerHTML = taskList[2];
-   document.getElementById("details").innerHTML = taskList[3];
-}
+<p>create list here
+    <ul id="pagelist">
+        <li>item 1   </li>
+        <li>item 2   </li>
+        <li>item 3   </li>
+    </ul>
+</p>
+
+<button id="clickAddList">add to list </button>
+<script>
+    clickAddList.addEventListener("click", buttonClick2);
+
+function buttonClick2() {
+var ulEl = document.querySelector(".ul");
+
+var newLiEl = document.createElement("li");
+newLiEl.textContent = "Task 4";
+
+ulEl.appendChild(newLiEl);
+
 </script>
+
 <br>
 <br>
 
