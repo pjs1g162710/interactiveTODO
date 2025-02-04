@@ -44,8 +44,47 @@
 </header>
 <body>
     <div class="container mt-4 bg-secondary">
+<h2> workspace </h2>
+<body>
+<p>testing code here:</p>
+
+<!--This script pulls output from function demo and prints it on HTML page-->
+<p id="demo"></p>
+
+<script>
+document.getElementById("demo").innerHTML = "Hello world";
+</script>
+
+<!--so what I now need to do is to pull input from the 4 elements:
+Task status
+Date
+Time
+Title
+details
+and save this as an array
+
+I'm going to arbitrarily at this point call the array var taskInfo-->
+
+var taskInfo = ["date", "time", "title", "details];
+
+
+
+</body>
+
+</div>
+
+
+<div class="container mt-4 bg-secondary">
     <h2> Add new task</h2>
     <p>To add a task to the 'to do' list, please fill out the field below and click 'add a task'</p>
+    <h3>Task Status</h3>
+    <form>
+      <select id="ddlViewBy">
+        
+        <option value="1" selected="selected">Active</option>
+        <option value="0">Complete</option>
+      </select>
+    </form>
 
     <h3> Set Deadline </h3>
 
@@ -69,6 +108,18 @@
 
   <p>Date: <input type="text" id="datepicker">
   <p> <button id="alert">Select Date</button> </p>
+
+  <!--add event listener to Select date button-->
+  <script>
+  alert.addEventListener("click", myFunction);
+
+function myFunction() {
+  index.getElementById("alert").innerHTML = "Hello World";
+}
+</script>
+
+
+
 
     <br>
 <p> Set Time:
@@ -99,6 +150,11 @@
           <label for="Message">Task Details:</label> </ul> <br>
           <textarea id="msg" name="subject" placeholder="Write details of task here...." cols="40" style="height:fit-content" style="width:fit-content(length-percentage)" ></textarea> <br> <br>
       
+      
+
+
+
+          <br>
           <input type="submit" value="Add Task" > <br>
 
          
